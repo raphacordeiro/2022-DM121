@@ -7,29 +7,29 @@
     <title>HTML Forms</title>
   </head>
   <body>
-    <form action="">
+    <form action="https://httpbin.org/post" method="post">
       <fieldset>
         <legend>Personal information</legend>
         <label for="name">
           Name
-          <input type="text" id="name" />
+          <input type="text" id="name" name="name" />
         </label>
         <br />
         <label for="email">
           Email
-          <input type="email" id="email" />
+          <input type="email" id="email" name="email" />
         </label>
       </fieldset>
       <fieldset>
         <legend>Credentials</legend>
         <label for="password">
           Password
-          <input type="password" id="password" />
+          <input type="password" id="password" name="password" />
         </label>
         <br />
         <label for="confirm-password" F>
           Confirm Password
-          <input type="password" id="confirm-password" />
+          <input type="password" id="confirm-password" name="confirm-password" />
         </label>
       </fieldset>
       <fieldset>
@@ -44,19 +44,19 @@
       </fieldset>
       <fieldset>
         <legend>Pet</legend>
-        <label for="dog"> <input type="checkbox" id="dog" /> Dog </label>
+        <label for="dog"> <input type="checkbox" id="dog" name="dog" /> Dog </label>
         <br />
-        <label for="cat"> <input type="checkbox" id="cat" /> Cat </label>
+        <label for="cat"> <input type="checkbox" id="cat" name="cat" /> Cat </label>
         <br />
         <label for="hamster">
-          <input type="checkbox" id="hamster" /> Hamster
+          <input type="checkbox" id="hamster" name="hamster" /> Hamster
         </label>
       </fieldset>
       <fieldset>
         <legend>State</legend>
         <label for="state">
           State:
-          <select id="state">
+          <select id="state" name="state">
             <option value="">[...]</option>
             <option value="SP">São Paulo</option>
             <option value="MG">Minas Gerais</option>
