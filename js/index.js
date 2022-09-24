@@ -1,13 +1,12 @@
-console.log("Hello there")
-let lingua = "Java o script"
-console.log(`${lingua}`)
-
-let first_gen = []
-for (let i = 1; i < 152; i++){
-  first_gen[i] = i;
-//  console.log(first_gen[i]);
+async function collect_types() {
+  const firstgen_types = await fetch(
+    "https://pokeapi.co/api/v2/generation/1/"
+  );
+  const pokemon = await firstgen_types.json();
+  return firstgen_types;
 }
-console.log(first_gen.length)
-console.log(first_gen)
+
+const tipos = await collect_types();
+console.log(tipos)
 
 // first_gen.forEach(console.log());
