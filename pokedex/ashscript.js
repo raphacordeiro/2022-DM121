@@ -22,7 +22,7 @@
     grass: "#74CB48", 
     electric: "#F9CF30",
     water: "#6493EB", 
-    fire: "#F9CF30",
+    fire: "#F57D31",
     bug: "#A7B723",
     ground: "#DEC16B",
     normal: "#AAA67F",
