@@ -65,7 +65,8 @@
     /**  console.log(cor)
     console.log(paleta["Electric"])
     /*tipo.textContent=`Tipo: ${pokemon.types[0].type.name}`;*/
-    img.src = pokemon.sprites.front_default;
+    img.src = pokemon.sprites.other["official-artwork"].front_default;
+    img.width = 98;
     div.appendChild(h2);
     div.appendChild(img);
     div.appendChild(down_text);
