@@ -42,18 +42,22 @@
     const down_text = document.createElement("down_text");
     const img = document.createElement("img");
     const tipo = document.createElement("tipo");
-
+    function showmessage(){
+      return window.alert("teste exibição stats");
+    }
     h2.textContent = `#${pokemon.order}`;
     down_text.textContent = `${pokemon.name}`;
     const cor = `${pokemon.types[0].type.name}`;
     div.style.borderColor = `${paleta[cor]}`;
+    div.id = `${pokemon.name}`;
+    /*img.onclick=`console.log("funfando")`;*/
+    div.onclick = showmessage
     h2.style.color = `${paleta[cor]}`;
     down_text.style.background = `${paleta[cor]}`;
-    console.log(cor)
+    /**  console.log(cor)
     console.log(paleta["Electric"])
     /*tipo.textContent=`Tipo: ${pokemon.types[0].type.name}`;*/
     img.src = pokemon.sprites.front_default;
-
     div.appendChild(h2);
     div.appendChild(img);
     div.appendChild(down_text);
@@ -63,6 +67,16 @@
   
   }
   
+  /**collecting selected pokemon stats */
+  async function get_stats(id_pokemon){
+    const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + id_pokemon);
+    const stats = await response.json();
+    console.log(stats.stats)
+    return stats.stats;
+  }
+
+  const teste_stats = get_stats(1);
+  console.log(teste_stats)
   /* Running all 151 pokemons of first generation */
   let first_gen = []
   for (let i = 1; i < 152; i++){
