@@ -4,6 +4,7 @@
     const pokemon = await response.json();
     return pokemon;
   }
+
   /* Collecting all pokemon types*/
   async function collect_types() {
     const firstgen_types =  await fetch("https://pokeapi.co/api/v2/generation/1/");
@@ -12,8 +13,16 @@
     return await all_types;
   }
 
-  /*Page building */
-  async function createPokemon(pokeNumber) {
+  /**Open detailed information about the selected pokemon */
+  function showcard(){
+
+      window.location.href = "card.html";
+    
+
+  }
+
+    /*Page building */
+    async function createPokemon(pokeNumber) {
     /** Collection one pokemon*/
     const pokemon = await fetchData(pokeNumber);
 
@@ -42,16 +51,15 @@
     const down_text = document.createElement("down_text");
     const img = document.createElement("img");
     const tipo = document.createElement("tipo");
-    function showmessage(){
-      return window.alert("teste exibição stats");
-    }
+
+
     h2.textContent = `#${pokemon.order}`;
     down_text.textContent = `${pokemon.name}`;
     const cor = `${pokemon.types[0].type.name}`;
     div.style.borderColor = `${paleta[cor]}`;
     div.id = `${pokemon.name}`;
     /*img.onclick=`console.log("funfando")`;*/
-    div.onclick = showmessage
+    div.onclick = showcard
     h2.style.color = `${paleta[cor]}`;
     down_text.style.background = `${paleta[cor]}`;
     /**  console.log(cor)
