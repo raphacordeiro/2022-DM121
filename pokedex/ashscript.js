@@ -5,6 +5,7 @@
     return pokemon;
   }
 
+
   /* Collecting all pokemon types*/
   async function collect_types() {
     const firstgen_types =  await fetch("https://pokeapi.co/api/v2/generation/1/");
@@ -13,16 +14,18 @@
     return await all_types;
   }
 
-  /**Open detailed information about the selected pokemon */
-  function showcard(){
-
+  /**Open detailed information about the selected pokemon*/
+  function showcard(event){
+      event = this.id;
+      console.log(event);
+      sessionStorage.setItem('event', event);
       window.location.href = "card.html";
-    
+    } 
 
-  }
 
     /*Page building */
     async function createPokemon(pokeNumber) {
+
     /** Collection one pokemon*/
     const pokemon = await fetchData(pokeNumber);
 
@@ -57,14 +60,13 @@
     down_text.textContent = `${pokemon.name}`;
     const cor = `${pokemon.types[0].type.name}`;
     div.style.borderColor = `${paleta[cor]}`;
-    div.id = `${pokemon.name}`;
-    /*img.onclick=`console.log("funfando")`;*/
-    div.onclick = showcard
+    /*div.id = `${pokemon.name}`;*/
+    div.id = pokeNumber;
+   
+    div.onclick=showcard
+
     h2.style.color = `${paleta[cor]}`;
     down_text.style.background = `${paleta[cor]}`;
-    /**  console.log(cor)
-    console.log(paleta["Electric"])
-    /*tipo.textContent=`Tipo: ${pokemon.types[0].type.name}`;*/
     img.src = pokemon.sprites.other["official-artwork"].front_default;
     img.width = 98;
     div.appendChild(h2);
@@ -94,6 +96,4 @@
 
   /*Calling function to create html page */
   first_gen.forEach(createPokemon);
-
- 
 
