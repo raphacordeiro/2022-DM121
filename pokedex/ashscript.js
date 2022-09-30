@@ -17,8 +17,10 @@
   /**Open detailed information about the selected pokemon*/
   function showcard(event){
       event = this.id;
+      const type = this.style.borderColor;
       console.log(event);
       sessionStorage.setItem('event', event);
+      sessionStorage.setItem('type', type);
       window.location.href = "card.html";
     } 
 
